@@ -1,44 +1,34 @@
 import NextLogo from "./next-logo";
 import SupabaseLogo from "./supabase-logo";
+import { BackgroundBeams } from "./ui/background-beams";
+import { Input } from "./ui/input";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 export default function Header() {
+  const words = `Bringing members to the forefront of the shepherding experience`;
+
   return (
     <div className="flex flex-col gap-16 items-center">
-      <div className="flex gap-8 justify-center items-center">
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SupabaseLogo />
-        </a>
-        <span className="border-l rotate-45 h-6" />
-        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-          <NextLogo />
-        </a>
+      <BackgroundBeams />
+      <div className="container text-center">
+        <TextGenerateEffect duration={2} words={words} />
       </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-      <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
-        The fastest way to build apps with{" "}
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Supabase
-        </a>{" "}
-        and{" "}
-        <a
-          href="https://nextjs.org/"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Next.js
-        </a>
-      </p>
-      <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
+      <div className="max-w-2xl mx-auto p-4">
+        <h1 className="relative z-10 text-4xl md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
+          Join the waitlist
+        </h1>
+        <p></p>
+        <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
+          Welcome to <span className="text-purple-400">Church Insights</span>,
+          the best pastoral care service on the web. We provide an easy way for
+          member centered shepherding.
+        </p>
+        <Input
+          type="email"
+          placeholder="hi@manuarora.in"
+          className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-purple-500  w-full relative z-10 mt-4  bg-neutral-950 placeholder:text-neutral-700"
+        />
+      </div>
     </div>
   );
 }
